@@ -10,12 +10,13 @@ const PodcastList: React.FC<Props> = ({ searchTerm }) => {
 
   return (
     <div>
+      {service.status === "init" && <div>{service.default}</div>}
       {service.status === "loading" && <div>Loading...</div>}
       {service.status === "loaded" &&
         service.payload.results.map(podcast => (
           <div key={podcast.feedUrl}>{podcast.artistName}</div>
         ))}
-      {service.status === "error" && <div>Error message.</div>}
+      {service.status === "error" && <div>{service.error}</div>}
     </div>
   );
 };

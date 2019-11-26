@@ -7,7 +7,7 @@ export class PodcastContainer extends Component {
     return (
       <div>
         <PodcastDescription></PodcastDescription>
-        <PodcastList searchTerm="test"></PodcastList>
+       
       </div>
     );
   }

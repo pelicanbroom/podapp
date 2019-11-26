@@ -1,5 +1,6 @@
 interface ServiceInit {
   status: "init";
+  default: String
 }
 interface ServiceLoading {
   status: "loading";

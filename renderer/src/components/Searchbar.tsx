@@ -1,13 +1,20 @@
-import React, { Component } from "react";
+import React, { FunctionComponent } from "react";
 
-export class Searchbar extends Component {
-  render() {
-    return (
-      <header>
-        <p>Search</p>
-      </header>
-    );
-  }
+interface Props {
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onAdd: (event: React.FormEvent<HTMLFormElement>) => void;
+  searchTerm: string;
 }
+
+export const Searchbar: FunctionComponent<Props> = ({
+  onChange,
+  onAdd,
+  searchTerm
+}) => (
+  <form onSubmit={onAdd}>
+    <input onChange={onChange} value={searchTerm} />
+    <button type="submit" placeholder="Search...">Search</button>
+  </form>
+);
 
 export default Searchbar;
