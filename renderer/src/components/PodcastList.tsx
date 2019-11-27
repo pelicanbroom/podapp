@@ -14,7 +14,8 @@ const PodcastList: React.FC<Props> = ({ searchTerm }) => {
       {service.status === "loading" && <div>Loading...</div>}
       {service.status === "loaded" &&
         service.payload.results.map(podcast => (
-          <div key={podcast.feedUrl}>{podcast.artistName}</div>
+          <div key={podcast.feedUrl}>{podcast.artistName} - {podcast.collectionName} <button type="submit">Add Item</button></div>
+          
         ))}
       {service.status === "error" && <div>{service.error}</div>}
     </div>
