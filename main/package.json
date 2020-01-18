@@ -13,12 +13,12 @@
     "cross-env": "^6.0.3",
     "electron-is-dev": "^1.1.0",
     "electron-reload": "^1.5.0",
-    "nodemon": "^1.19.4",
-    "typescript": "^3.6.4"
+    "nodemon": "^2.0.2",
+    "typescript": "^3.7.5"
   },
   "dependencies": {
-    "concurrently": "^5.0.0",
-    "electron": "^7.0.0",
+    "concurrently": "^5.0.2",
+    "electron": "^7.1.9",
     "wait-on": "^3.3.0"
   }
 }

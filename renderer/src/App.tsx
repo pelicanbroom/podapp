@@ -1,17 +1,18 @@
-import React, { Component, FormEvent, ChangeEvent } from "react";
+import React, { Component } from "react";
 import Sidebar from "./components/Sidebar";
 import Searchbar from "./components/Searchbar";
-import PodcastContainer from "./components/PodcastContainer";
 import "./styles/styles.css";
 import PodcastList from "./components/PodcastList";
 
 interface State {
   newSearchTerm: string;
+  favoritePodcast: string[];
 }
 
 export class App extends Component<{}, State> {
   state = {
-    newSearchTerm: ""
+    newSearchTerm: "",
+    favoritePodcast: [localStorage.getItem("favorites")]
   };
 
   render() {
@@ -24,6 +25,7 @@ export class App extends Component<{}, State> {
             onChange={this.handleSearchTermChange}
           ></Searchbar>
         </div>
+        <div>{this.state.favoritePodcast}</div>
         <div className="sidebar-wrapper">
           <Sidebar></Sidebar>
         </div>
