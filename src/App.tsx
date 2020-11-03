@@ -18,7 +18,7 @@ export class App extends Component<unknown, State> {
     };
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <div>
         <div className="searchbar-wrapper">

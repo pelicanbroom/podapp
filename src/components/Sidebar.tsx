@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 export class Sidebar extends Component {
-  render() {
+  render(): JSX.Element {
     return (
       <div >
         <nav className="sidebar-block">

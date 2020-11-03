@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PodcastDescription from './PodcastDescription';
 
 export class PodcastContainer extends Component {
-  render() {
+  render(): JSX.Element {
     return (
       <div>
         <PodcastDescription />
