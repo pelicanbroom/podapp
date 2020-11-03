@@ -1,19 +1,22 @@
-import React, { Component } from "react";
-import Sidebar from "./components/Sidebar";
-import Searchbar from "./components/Searchbar";
-import "./styles/styles.css";
-import PodcastList from "./components/PodcastList";
+import React, { Component } from 'react';
+import PodcastList from './components/PodcastList';
+import Searchbar from './components/Searchbar';
+import Sidebar from './components/Sidebar';
+import './styles/styles.css';
 
 interface State {
   newSearchTerm: string;
   favoritePodcast: string[];
 }
 
-export class App extends Component<{}, State> {
-  state = {
-    newSearchTerm: "",
-    favoritePodcast: [localStorage.getItem("favorites")]
-  };
+export class App extends Component<unknown, State> {
+  constructor(props: unknown) {
+    super(props)
+    this.state = {
+      newSearchTerm: '',
+      favoritePodcast: [localStorage.getItem('favorites')],
+    };
+  }
 
   render() {
     return (
@@ -23,14 +26,14 @@ export class App extends Component<{}, State> {
             searchTerm={this.state.newSearchTerm}
             onAdd={this.addTerm}
             onChange={this.handleSearchTermChange}
-          ></Searchbar>
+           />
         </div>
         <div>{this.state.favoritePodcast}</div>
         <div className="sidebar-wrapper">
-          <Sidebar></Sidebar>
+          <Sidebar />
         </div>
         <div className="podcast-wrapper">
-          <PodcastList searchTerm={this.state.newSearchTerm}></PodcastList>
+          <PodcastList searchTerm={this.state.newSearchTerm} />
         </div>
       </div>
     );
@@ -39,8 +42,8 @@ export class App extends Component<{}, State> {
   private addTerm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    this.setState(previousState => ({
-      newSearchTerm: ""
+    this.setState(() => ({
+      newSearchTerm: '',
     }));
   };
 
@@ -48,7 +51,7 @@ export class App extends Component<{}, State> {
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
     this.setState({
-      newSearchTerm: event.target.value
+      newSearchTerm: event.target.value,
     });
   };
 }
