@@ -14,13 +14,19 @@ const usePostPodcastService = (searchTerm: string): Service<Podcasts> => {
   useEffect(() => {
     if (searchTerm) {
       setResult({ status: 'loading' });
+      setTimeout(() => {
+        fetch(
+          'https://itunes.apple.com/search?term=' + searchTerm + '&media=podcast'
+        )
+          .then((response) => response.json())
+          .then((response) => setResult({ status: 'loaded', payload: response }))
+          .catch((error) => 
+            console.log(error)
+            /* setResult({ status: 'error', error }) */
+            );
+      }, 500);
 
-      fetch(
-        'https://itunes.apple.com/search?term=' + searchTerm + '&media=podcast'
-      )
-        .then((response) => response.json())
-        .then((response) => setResult({ status: 'loaded', payload: response }))
-        .catch((error) => setResult({ status: 'error', error }));
+     
     } else {
       setResult({
         status: 'init',
