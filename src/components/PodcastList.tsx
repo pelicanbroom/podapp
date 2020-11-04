@@ -21,14 +21,14 @@ const PodcastList: React.FC<Props> = ({ searchTerm }) => {
       {service.status === 'loading' && <div>Loading...</div>}
       {service.status === 'loaded' &&
         service.payload.results.map((podcast) => (
-          <div key={podcast.feedUrl}>
+          <div key={podcast.trackId}>
             {podcast.artistName} - {podcast.collectionName}{' '}
             <button type="button" onClick={() => addToFavorite(podcast)}>
               Add Podcast To Favorite
             </button>
             <ul>
               {items.map((item) => (
-                <li key={item.feedUrl}>{item.artistName}</li>
+                <li key={item.trackId}>{item.artistName}</li>
               ))}
             </ul>
           </div>
