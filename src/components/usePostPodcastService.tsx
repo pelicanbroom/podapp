@@ -8,7 +8,7 @@ export interface Podcasts {
 
 const usePostPodcastService = (searchTerm: string): Service<Podcasts> => {
   const [result, setResult] = useState<Service<Podcasts>>({
-    status: 'loading'
+    status: 'loading',
   });
 
   useEffect(() => {
@@ -16,21 +16,25 @@ const usePostPodcastService = (searchTerm: string): Service<Podcasts> => {
       setResult({ status: 'loading' });
       setTimeout(() => {
         fetch(
-          'https://itunes.apple.com/search?term=' + searchTerm + '&media=podcast'
+          'https://itunes.apple.com/search?term=' +
+            searchTerm +
+            '&media=podcast'
         )
           .then((response) => response.json())
-          .then((response) => setResult({ status: 'loaded', payload: response }))
-          .catch((error) => 
-            console.log(error)
-            /* setResult({ status: 'error', error }) */
-            );
+          .then((response) => {
+            if (response.resultCount < 1) {
+              setResult({ status: 'init', default: 'There is no result. Try another search term' });
+            }
+            else {
+              setResult({ status: 'loaded', payload: response });
+            }
+          })
+          .catch((error) => setResult({ status: 'error', error }));
       }, 500);
-
-     
     } else {
       setResult({
         status: 'init',
-        default: 'Type something in the search bar'
+        default: 'Type something in the search bar',
       });
     }
   }, [searchTerm]);
