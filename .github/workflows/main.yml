@@ -29,7 +29,7 @@ jobs:
         with:
           args: >
             -Dsonar.organization=fccalvez
-            -Dsonar.projectKey=podapp
+            -Dsonar.projectKey=fccalvez_podapp
             -Dsonar.verbose=true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
