@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Favorite from './components/Favorite';
 import PodcastList from './components/PodcastList';
 import Searchbar from './components/Searchbar';
 import Sidebar from './components/Sidebar';
@@ -28,7 +29,9 @@ export class App extends Component<unknown, State> {
             onChange={this.handleSearchTermChange}
            />
         </div>
-        <div>{this.state.favoritePodcast}</div>
+        <div>
+          <Favorite podcasts={this.state.favoritePodcast} />
+        </div>
         <div className="sidebar-wrapper">
           <Sidebar />
         </div>

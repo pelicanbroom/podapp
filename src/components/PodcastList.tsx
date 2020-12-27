@@ -26,11 +26,6 @@ const PodcastList: React.FC<Props> = ({ searchTerm }) => {
             <button type="button" onClick={() => addToFavorite(podcast)}>
               Add Podcast To Favorite
             </button>
-            <ul>
-              {items.map((item) => (
-                <li key={item.trackId}>{item.artistName}</li>
-              ))}
-            </ul>
           </div>
         ))}
       {service.status === 'error' && <div>{service.error}</div>}
