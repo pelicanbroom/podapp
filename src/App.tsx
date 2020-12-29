@@ -7,7 +7,7 @@ import './styles/styles.css';
 
 interface State {
   newSearchTerm: string;
-  favoritePodcast: string[];
+  favoritePodcast: [any];
 }
 
 export class App extends Component<unknown, State> {
@@ -15,7 +15,7 @@ export class App extends Component<unknown, State> {
     super(props)
     this.state = {
       newSearchTerm: '',
-      favoritePodcast: [localStorage.getItem('favorites')],
+      favoritePodcast: JSON.parse(localStorage.getItem('favorites')),
     };
   }
 

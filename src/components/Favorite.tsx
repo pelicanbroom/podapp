@@ -1,5 +1,5 @@
 interface Props {
-  podcasts: string[];
+  podcasts: [any];
 }
 
 const Favorite: React.FC<Props> = ({ podcasts }) => {
@@ -15,9 +15,9 @@ const Favorite: React.FC<Props> = ({ podcasts }) => {
         <tbody>
           {podcasts.length > 0 ? (
             podcasts.map((podcast) => (
-              <tr key={JSON.parse(podcast).trackId} >
-                <td>{JSON.parse(podcast).artistName}</td>
-                <td>{JSON.parse(podcast).collectionName}</td>
+              <tr key={podcast.trackId} >
+                <td>{podcast.artistName}</td>
+                <td>{podcast.collectionName}</td>
                 <td>
                   <button type="button" className="button muted-button">
                     Edit
