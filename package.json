@@ -17,6 +17,7 @@
     }
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "dom-to-image-more": "^2.8.0",
     "local-storage": "^2.0.0",
     "lodash": "^4.17.20",
