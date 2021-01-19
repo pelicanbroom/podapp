@@ -2,7 +2,7 @@ interface Props {
   podcasts: [any];
 }
 
-const Favorite: React.FC<Props> = ({ podcasts }) => {
+const Favorite: React.FC<Props> = ({ props }) => {
     return (
       <table>
         <thead>
@@ -13,8 +13,8 @@ const Favorite: React.FC<Props> = ({ podcasts }) => {
           </tr>
         </thead>
         <tbody>
-          {podcasts.length > 0 ? (
-            podcasts.map((podcast) => (
+          {props.length > 0 ? (
+            props.map((podcast) => (
               <tr key={podcast.trackId} >
                 <td>{podcast.artistName}</td>
                 <td>{podcast.collectionName}</td>
